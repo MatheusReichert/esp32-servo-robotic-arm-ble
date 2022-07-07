@@ -1,13 +1,12 @@
+//Observer dos botoes e responsavel pelo controle BLE
 #include <XboxSeriesXControllerESP32_asukiaaa.hpp>
 // Notação para uso de codigo em C dentro de um codigo CPP
 extern "C"   {
   #include "Servo.h"
 }
 
-
 // Necessario pois identifica o dispositivo bluethoot
 XboxSeriesXControllerESP32_asukiaaa::Core xboxController("14:cb:65:aa:ae:72");
-
 
 void setup() {
 
@@ -58,9 +57,7 @@ void loop() {
         Serial.printf("servoDoisPos: %i\n", servoDoisPos);
         delay(100);
 
-
         //ATENÇÂO, GATILHOS DO CONTROLE TEM VALORES CONTINUOS
-
 
         if((servoTresPos > 0) && (xboxController.xboxNotif.btnLB != 0)) {
             servoTresPos--;
