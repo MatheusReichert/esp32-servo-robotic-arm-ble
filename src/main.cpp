@@ -21,10 +21,6 @@ void setup() {
     initServoTres();
     initServoQuatro();
 
-    servoUmPos = servoUmRead();
-    servoDoisPos = servoDoisRead();
-    servoTresPos = servoTresRead();
-    servoQuatroPos = servoQuatroRead();
 } //fim da configuração dos parametros
 
 //Super loop

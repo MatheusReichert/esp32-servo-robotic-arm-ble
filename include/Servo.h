@@ -1,3 +1,8 @@
+/**
+* Baseando se na documentação
+*   https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/mcpwm.html
+*/
+
 #ifndef SERVO_H
 #define SERVO_H
 

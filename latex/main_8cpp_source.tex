@@ -1,0 +1,95 @@
+\hypertarget{main_8cpp_source}{}\doxysection{main.\+cpp}
+\label{main_8cpp_source}\index{src/main.cpp@{src/main.cpp}}
+\mbox{\hyperlink{main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001 \textcolor{comment}{//Observer dos botoes e responsavel pelo controle BLE}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <XboxSeriesXControllerESP32\_asukiaaa.hpp>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00003}00003 \textcolor{comment}{// Notação para uso de codigo em C dentro de um codigo CPP}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00004}00004 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}   \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00005}00005 \textcolor{preprocessor}{  \#include "{}\mbox{\hyperlink{_servo_8h}{Servo.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}00008 \textcolor{comment}{// Necessario pois identifica o dispositivo bluethoot}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}\mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{00009}} XboxSeriesXControllerESP32\_asukiaaa::Core \mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}(\textcolor{stringliteral}{"{}14:cb:65:aa:ae:72"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}\mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{00011}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}}() \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013     Serial.begin(9600);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00015}00015     \textcolor{comment}{//Biblioteca para controlar o controle sem fio BLE}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}00016     Serial.println(\textcolor{stringliteral}{"{}Starting NimBLE Client"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00017}00017     \mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.begin();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019     \mbox{\hyperlink{_servo_8h_af8571e1e364502d96da81d72a634a97d}{initServoUm}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}00020     \mbox{\hyperlink{_servo_8h_ab193ebaaeaaf99dcdb84dab943c6a0f6}{initServoDois}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}00021     \mbox{\hyperlink{_servo_8h_a09eda1b6216f6d99f2f6f791283f57a1}{initServoTres}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022     \mbox{\hyperlink{_servo_8h_ab0e1936aabacef949268e2fd2b26615e}{initServoQuatro}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024 \} \textcolor{comment}{//fim da configuração dos parametros}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026 \textcolor{comment}{//Super loop}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}\mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{00027}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}}() \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029     \mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.onLoop();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030     \textcolor{keywordflow}{if} (\mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.isConnected()) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032         \textcolor{keywordflow}{if}((\mbox{\hyperlink{_servo_8h_a3aef0be95a12e0132406bd5533a94648}{servoUmPos}} > 70) \&\& \mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.xboxNotif.btnA) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033             \mbox{\hyperlink{_servo_8h_a3aef0be95a12e0132406bd5533a94648}{servoUmPos}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034             delay(1);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035         \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036         \textcolor{keywordflow}{if}((\mbox{\hyperlink{_servo_8h_a3aef0be95a12e0132406bd5533a94648}{servoUmPos}} < 120) \&\& \mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.xboxNotif.btnY) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037             \mbox{\hyperlink{_servo_8h_a3aef0be95a12e0132406bd5533a94648}{servoUmPos}}++;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038             delay(1);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039         \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040         \mbox{\hyperlink{_servo_8h_a1ae1face4aa806a275fc77cf40e3e328}{servoUmWrite}}(\mbox{\hyperlink{_servo_8h_a3aef0be95a12e0132406bd5533a94648}{servoUmPos}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041         Serial.printf(\textcolor{stringliteral}{"{}servoUmPos: \%i\(\backslash\)n"{}}, \mbox{\hyperlink{_servo_8h_a3aef0be95a12e0132406bd5533a94648}{servoUmPos}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042         delay(100);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044         \textcolor{keywordflow}{if}((\mbox{\hyperlink{_servo_8h_aad147dc41071725509e63571b5ffc786}{servoDoisPos}} > 60) \&\& \mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.xboxNotif.btnX) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045             \mbox{\hyperlink{_servo_8h_aad147dc41071725509e63571b5ffc786}{servoDoisPos}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046             delay(1);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047         \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048         \textcolor{keywordflow}{if}((\mbox{\hyperlink{_servo_8h_aad147dc41071725509e63571b5ffc786}{servoDoisPos}} < 120) \&\& \mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.xboxNotif.btnB) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049             \mbox{\hyperlink{_servo_8h_aad147dc41071725509e63571b5ffc786}{servoDoisPos}}++;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050             delay(1);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051         \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052         \mbox{\hyperlink{_servo_8h_a5f0ce21e2e6df04f210b7ed8fb0451b4}{servoDoisWrite}}(\mbox{\hyperlink{_servo_8h_aad147dc41071725509e63571b5ffc786}{servoDoisPos}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053         Serial.printf(\textcolor{stringliteral}{"{}servoDoisPos: \%i\(\backslash\)n"{}}, \mbox{\hyperlink{_servo_8h_aad147dc41071725509e63571b5ffc786}{servoDoisPos}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054         delay(100);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056         \textcolor{comment}{//ATENÇÂO, GATILHOS DO CONTROLE TEM VALORES CONTINUOS}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058         \textcolor{keywordflow}{if}((\mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{servoTresPos}} > 0) \&\& (\mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.xboxNotif.btnLB != 0)) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059             \mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{servoTresPos}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}00060             delay(1);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00061}00061         \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00062}00062         \textcolor{keywordflow}{if}((\mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{servoTresPos}} < 180) \&\& (\mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.xboxNotif.btnRB != 0)) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00063}00063             \mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{servoTresPos}}++;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00064}00064             delay(1);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065         \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066         \mbox{\hyperlink{_servo_8h_a9124257f59a2e605f350c15dc806d45c}{servoTresWrite}}(\mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{servoTresPos}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067         Serial.printf(\textcolor{stringliteral}{"{}servoTresPos: \%i\(\backslash\)n"{}}, \mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{servoTresPos}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068         delay(100);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070         \textcolor{keywordflow}{if}((\mbox{\hyperlink{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}{servoQuatroPos}} > 0) \&\& (\mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.xboxNotif.btnLS =! 0)) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071             \mbox{\hyperlink{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}{servoQuatroPos}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072             delay(1);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073         \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074         \textcolor{keywordflow}{if}((\mbox{\hyperlink{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}{servoQuatroPos}} < 180) \&\& (\mbox{\hyperlink{main_8cpp_aee0e1b913bf30367497486d64030321d}{xboxController}}.xboxNotif.btnRS =! 0)) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075             \mbox{\hyperlink{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}{servoQuatroPos}}++;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076             delay(1);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077         \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00078}00078         \mbox{\hyperlink{_servo_8h_a13facb695c9855f5c6c9efd07f02f30d}{servoQuatroWrite}}(\mbox{\hyperlink{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}{servoQuatroPos}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00079}00079         Serial.printf(\textcolor{stringliteral}{"{}servoQuatroPos: \%i\(\backslash\)n"{}}, \mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{servoTresPos}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00080}00080         delay(100);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00083}00083     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00084}00084         Serial.print(\textcolor{stringliteral}{"{}not connected"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00086}00086         Serial.println(\textcolor{stringliteral}{"{} at "{}} + String(millis()));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00088}00088     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00089}00089 \}}
+
+\end{DoxyCode}

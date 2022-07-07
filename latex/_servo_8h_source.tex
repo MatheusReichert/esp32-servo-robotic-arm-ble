@@ -1,0 +1,47 @@
+\hypertarget{_servo_8h_source}{}\doxysection{Servo.\+h}
+\label{_servo_8h_source}\index{include/Servo.h@{include/Servo.h}}
+\mbox{\hyperlink{_servo_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00006}00006 \textcolor{preprocessor}{\#ifndef SERVO\_H}}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00007}00007 \textcolor{preprocessor}{\#define SERVO\_H}}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00009}00009 \textcolor{preprocessor}{\#include "{}freertos/FreeRTOS.h"{}}}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00010}00010 \textcolor{preprocessor}{\#include "{}freertos/task.h"{}}}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}driver/mcpwm.h"{}}}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00014}\mbox{\hyperlink{_servo_8h_a7d58f3547f66a500716d6401a2eb5fb3}{00014}} \textcolor{preprocessor}{\#define SERVO\_MIN\_PULSEWIDTH\_US (500) }\textcolor{comment}{// Largura de pulso minima em micro segundos}}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00015}\mbox{\hyperlink{_servo_8h_a3c252ebbe666084cbd2f993e45e71c62}{00015}} \textcolor{preprocessor}{\#define SERVO\_MAX\_PULSEWIDTH\_US (2500) }\textcolor{comment}{// Largura de pulso maxima do servo  em micro segundos}}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00016}\mbox{\hyperlink{_servo_8h_a600a905aa0df8e867a85378c665f703c}{00016}} \textcolor{preprocessor}{\#define SERVO\_MAX\_DEGREE        (180)   }\textcolor{comment}{// Angulo max}}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00018}\mbox{\hyperlink{_servo_8h_a9a0c9ff01234e534d2745faca09d7f47}{00018}} \textcolor{preprocessor}{\#define SERVO\_UM GPIO\_NUM\_15}}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00019}\mbox{\hyperlink{_servo_8h_aeaf1cfce76872c7221f2b3a341d9c0e2}{00019}} \textcolor{preprocessor}{\#define SERVO\_DOIS GPIO\_NUM\_23   }}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00020}\mbox{\hyperlink{_servo_8h_aff69cfbbfe0d89ec8f997dd06e1d966f}{00020}} \textcolor{preprocessor}{\#define SERVO\_TRES GPIO\_NUM\_34   }}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00021}\mbox{\hyperlink{_servo_8h_ad949ce2b30d30e4ae931aab35205e0a5}{00021}} \textcolor{preprocessor}{\#define SERVO\_QUATRO GPIO\_NUM\_17     }}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00023}\mbox{\hyperlink{_servo_8h_a3aef0be95a12e0132406bd5533a94648}{00023}} \textcolor{keywordtype}{int} \mbox{\hyperlink{_servo_8h_a3aef0be95a12e0132406bd5533a94648}{servoUmPos}};}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00024}\mbox{\hyperlink{_servo_8h_aad147dc41071725509e63571b5ffc786}{00024}} \textcolor{keywordtype}{int} \mbox{\hyperlink{_servo_8h_aad147dc41071725509e63571b5ffc786}{servoDoisPos}};}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00025}\mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{00025}} \textcolor{keywordtype}{int} \mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{servoTresPos}};}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00026}\mbox{\hyperlink{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}{00026}} \textcolor{keywordtype}{int} \mbox{\hyperlink{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}{servoQuatroPos}};}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00028}00028 \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8h_af8571e1e364502d96da81d72a634a97d}{initServoUm}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00029}00029 \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8h_ab193ebaaeaaf99dcdb84dab943c6a0f6}{initServoDois}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00030}00030 \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8h_a09eda1b6216f6d99f2f6f791283f57a1}{initServoTres}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00031}00031 \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8h_ab0e1936aabacef949268e2fd2b26615e}{initServoQuatro}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00033}00033 \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8h_a1ae1face4aa806a275fc77cf40e3e328}{servoUmWrite}}(\textcolor{keywordtype}{int} angle);}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00034}00034 \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8h_a5f0ce21e2e6df04f210b7ed8fb0451b4}{servoDoisWrite}}(\textcolor{keywordtype}{int} angle);}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00035}00035 \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8h_a9124257f59a2e605f350c15dc806d45c}{servoTresWrite}}(\textcolor{keywordtype}{int} angle);}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00036}00036 \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8h_a13facb695c9855f5c6c9efd07f02f30d}{servoQuatroWrite}}(\textcolor{keywordtype}{int} angle);}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00038}00038 uint32\_t \mbox{\hyperlink{_servo_8h_a10eff29c8973c24b2805b52f1db12c8f}{servoUmRead}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00039}00039 uint32\_t \mbox{\hyperlink{_servo_8h_aadce76875ddb7bbb5940e72074b92b4b}{servoDoisRead}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00040}00040 uint32\_t \mbox{\hyperlink{_servo_8h_a97e3f003154baa94816ffbb3d9b34bce}{servoTresRead}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00041}00041 uint32\_t \mbox{\hyperlink{_servo_8h_a2cb1378f549e7653202080e2fcd46c71}{servoQuatroRead}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_servo_8h_source_l00045}00045 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

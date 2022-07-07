@@ -1,0 +1,95 @@
+\hypertarget{_servo_8c_source}{}\doxysection{Servo.\+c}
+\label{_servo_8c_source}\index{src/Servo.c@{src/Servo.c}}
+\mbox{\hyperlink{_servo_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_servo_8h}{Servo.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00013}00013 \textcolor{keyword}{static} \textcolor{keyword}{inline} uint32\_t angle\_to\_duty(\textcolor{keywordtype}{int} angle)}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00014}00014 \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00015}00015     \textcolor{keywordflow}{return} (angle + \mbox{\hyperlink{_servo_8h_a600a905aa0df8e867a85378c665f703c}{SERVO\_MAX\_DEGREE}}) * (\mbox{\hyperlink{_servo_8h_a3c252ebbe666084cbd2f993e45e71c62}{SERVO\_MAX\_PULSEWIDTH\_US}} -\/ \mbox{\hyperlink{_servo_8h_a7d58f3547f66a500716d6401a2eb5fb3}{SERVO\_MIN\_PULSEWIDTH\_US}}) / (2 * \mbox{\hyperlink{_servo_8h_a600a905aa0df8e867a85378c665f703c}{SERVO\_MAX\_DEGREE}}) + \mbox{\hyperlink{_servo_8h_a7d58f3547f66a500716d6401a2eb5fb3}{SERVO\_MIN\_PULSEWIDTH\_US}};}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00016}00016 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00023}00023 \textcolor{keyword}{static} \textcolor{keyword}{inline} uint32\_t duty\_to\_angle(\textcolor{keywordtype}{int} duty)}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00024}00024 \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00025}00025     \textcolor{keywordflow}{return}  ((duty -\/  \mbox{\hyperlink{_servo_8h_a7d58f3547f66a500716d6401a2eb5fb3}{SERVO\_MIN\_PULSEWIDTH\_US}}) * (2 * \mbox{\hyperlink{_servo_8h_a600a905aa0df8e867a85378c665f703c}{SERVO\_MAX\_DEGREE}}))/ (\mbox{\hyperlink{_servo_8h_a3c252ebbe666084cbd2f993e45e71c62}{SERVO\_MAX\_PULSEWIDTH\_US}} -\/ \mbox{\hyperlink{_servo_8h_a7d58f3547f66a500716d6401a2eb5fb3}{SERVO\_MIN\_PULSEWIDTH\_US}})  -\/ \mbox{\hyperlink{_servo_8h_a600a905aa0df8e867a85378c665f703c}{SERVO\_MAX\_DEGREE}};}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00026}00026 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00031}\mbox{\hyperlink{_servo_8h_af8571e1e364502d96da81d72a634a97d}{00031}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8c_af8571e1e364502d96da81d72a634a97d}{initServoUm}}() \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00032}00032     mcpwm\_gpio\_init(MCPWM\_UNIT\_0, MCPWM0A, \mbox{\hyperlink{_servo_8h_a9a0c9ff01234e534d2745faca09d7f47}{SERVO\_UM}});}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00034}00034     mcpwm\_config\_t pwm\_config = \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00035}00035         .frequency = 50, \textcolor{comment}{// frequency do servo}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00036}00036         .cmpr\_a = 0,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00037}00037         .counter\_mode = MCPWM\_UP\_COUNTER,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00038}00038         .duty\_mode = MCPWM\_DUTY\_MODE\_0,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00039}00039     \};}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00040}00040     mcpwm\_init(MCPWM\_UNIT\_0, MCPWM\_TIMER\_0, \&pwm\_config);}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00042}00042     \mbox{\hyperlink{_servo_8h_a3aef0be95a12e0132406bd5533a94648}{servoUmPos}} = \mbox{\hyperlink{_servo_8c_a10eff29c8973c24b2805b52f1db12c8f}{servoUmRead}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00044}00044 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00050}\mbox{\hyperlink{_servo_8h_a1ae1face4aa806a275fc77cf40e3e328}{00050}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8c_a1ae1face4aa806a275fc77cf40e3e328}{servoUmWrite}}(\textcolor{keywordtype}{int} angle) \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00051}00051     mcpwm\_set\_duty\_in\_us(MCPWM\_UNIT\_0, MCPWM\_TIMER\_0, MCPWM0A, angle\_to\_duty(angle));}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00052}00052     vTaskDelay(pdMS\_TO\_TICKS(100)); \textcolor{comment}{//Delay tempo rotação servo}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00053}00053 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00059}\mbox{\hyperlink{_servo_8h_a10eff29c8973c24b2805b52f1db12c8f}{00059}} uint32\_t \mbox{\hyperlink{_servo_8c_a10eff29c8973c24b2805b52f1db12c8f}{servoUmRead}}() \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00060}00060     \textcolor{keywordflow}{return} duty\_to\_angle(mcpwm\_get\_duty\_in\_us(MCPWM\_UNIT\_0, MCPWM\_TIMER\_0, MCPWM0A));}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00061}00061 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00066}\mbox{\hyperlink{_servo_8h_ab193ebaaeaaf99dcdb84dab943c6a0f6}{00066}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8c_ab193ebaaeaaf99dcdb84dab943c6a0f6}{initServoDois}}() \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00067}00067     mcpwm\_gpio\_init(MCPWM\_UNIT\_0, MCPWM1A, \mbox{\hyperlink{_servo_8h_aeaf1cfce76872c7221f2b3a341d9c0e2}{SERVO\_DOIS}});}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00069}00069     mcpwm\_config\_t pwm\_config = \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00070}00070         .frequency = 50, \textcolor{comment}{// frequency do servo}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00071}00071         .cmpr\_a = 0,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00072}00072         .counter\_mode = MCPWM\_UP\_COUNTER,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00073}00073         .duty\_mode = MCPWM\_DUTY\_MODE\_0,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00074}00074     \};}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00075}00075     mcpwm\_init(MCPWM\_UNIT\_0, MCPWM\_TIMER\_1, \&pwm\_config);}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00076}00076     \mbox{\hyperlink{_servo_8h_aad147dc41071725509e63571b5ffc786}{servoDoisPos}} = \mbox{\hyperlink{_servo_8c_aadce76875ddb7bbb5940e72074b92b4b}{servoDoisRead}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00077}00077 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00083}\mbox{\hyperlink{_servo_8h_a5f0ce21e2e6df04f210b7ed8fb0451b4}{00083}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8c_a5f0ce21e2e6df04f210b7ed8fb0451b4}{servoDoisWrite}}(\textcolor{keywordtype}{int} angle) \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00084}00084     mcpwm\_set\_duty\_in\_us(MCPWM\_UNIT\_0, MCPWM\_TIMER\_1, MCPWM1A, angle\_to\_duty(angle));}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00085}00085     vTaskDelay(pdMS\_TO\_TICKS(100)); \textcolor{comment}{//Delay tempo rotação servo}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00086}00086 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00092}\mbox{\hyperlink{_servo_8h_aadce76875ddb7bbb5940e72074b92b4b}{00092}} uint32\_t \mbox{\hyperlink{_servo_8c_aadce76875ddb7bbb5940e72074b92b4b}{servoDoisRead}}() \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00093}00093     \textcolor{keywordflow}{return} duty\_to\_angle(mcpwm\_get\_duty\_in\_us(MCPWM\_UNIT\_0, MCPWM\_TIMER\_1, MCPWM1A));}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00099}\mbox{\hyperlink{_servo_8h_a09eda1b6216f6d99f2f6f791283f57a1}{00099}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8c_a09eda1b6216f6d99f2f6f791283f57a1}{initServoTres}}() \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00100}00100     mcpwm\_gpio\_init(MCPWM\_UNIT\_0, MCPWM2A, \mbox{\hyperlink{_servo_8h_aff69cfbbfe0d89ec8f997dd06e1d966f}{SERVO\_TRES}});}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00102}00102     mcpwm\_config\_t pwm\_config = \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00103}00103         .frequency = 50, \textcolor{comment}{// frequency do servo}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00104}00104         .cmpr\_a = 0,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00105}00105         .counter\_mode = MCPWM\_UP\_COUNTER,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00106}00106         .duty\_mode = MCPWM\_DUTY\_MODE\_0,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00107}00107     \};}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00108}00108     mcpwm\_init(MCPWM\_UNIT\_0, MCPWM\_TIMER\_2, \&pwm\_config);}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00109}00109     \mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{servoTresPos}} = \mbox{\hyperlink{_servo_8c_a97e3f003154baa94816ffbb3d9b34bce}{servoTresRead}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00110}00110 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00116}\mbox{\hyperlink{_servo_8h_a9124257f59a2e605f350c15dc806d45c}{00116}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8c_a9124257f59a2e605f350c15dc806d45c}{servoTresWrite}}(\textcolor{keywordtype}{int} angle) \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00117}00117     mcpwm\_set\_duty\_in\_us(MCPWM\_UNIT\_0, MCPWM\_TIMER\_2, MCPWM2A, angle\_to\_duty(angle));}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00118}00118     vTaskDelay(pdMS\_TO\_TICKS(100)); \textcolor{comment}{//Delay tempo rotação servo}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00119}00119 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00125}\mbox{\hyperlink{_servo_8h_a97e3f003154baa94816ffbb3d9b34bce}{00125}} uint32\_t \mbox{\hyperlink{_servo_8c_a97e3f003154baa94816ffbb3d9b34bce}{servoTresRead}}() \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00126}00126     \textcolor{keywordflow}{return} duty\_to\_angle(mcpwm\_get\_duty\_in\_us(MCPWM\_UNIT\_0, MCPWM\_TIMER\_2, MCPWM2A));}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00127}00127 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00132}\mbox{\hyperlink{_servo_8h_ab0e1936aabacef949268e2fd2b26615e}{00132}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8c_ab0e1936aabacef949268e2fd2b26615e}{initServoQuatro}}() \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00133}00133     mcpwm\_gpio\_init(MCPWM\_UNIT\_0, MCPWM0B, \mbox{\hyperlink{_servo_8h_ad949ce2b30d30e4ae931aab35205e0a5}{SERVO\_QUATRO}});}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00134}00134 }
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00135}00135     mcpwm\_config\_t pwm\_config = \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00136}00136         .frequency = 50, \textcolor{comment}{// frequency do servo}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00137}00137         .cmpr\_a = 0,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00138}00138         .counter\_mode = MCPWM\_UP\_COUNTER,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00139}00139         .duty\_mode = MCPWM\_DUTY\_MODE\_0,}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00140}00140     \};}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00141}00141     mcpwm\_init(MCPWM\_UNIT\_0, MCPWM\_TIMER\_0, \&pwm\_config);}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00142}00142     \mbox{\hyperlink{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}{servoQuatroPos}} = \mbox{\hyperlink{_servo_8c_a2cb1378f549e7653202080e2fcd46c71}{servoQuatroRead}}();}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00143}00143 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00149}\mbox{\hyperlink{_servo_8h_a13facb695c9855f5c6c9efd07f02f30d}{00149}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_servo_8c_a13facb695c9855f5c6c9efd07f02f30d}{servoQuatroWrite}}(\textcolor{keywordtype}{int} angle) \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00150}00150     mcpwm\_set\_duty\_in\_us(MCPWM\_UNIT\_0, MCPWM\_TIMER\_0, MCPWM0B, angle\_to\_duty(angle));}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00151}00151     vTaskDelay(pdMS\_TO\_TICKS(100)); \textcolor{comment}{//Delay tempo rotação servo}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00152}00152 \}}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00158}\mbox{\hyperlink{_servo_8h_a2cb1378f549e7653202080e2fcd46c71}{00158}} uint32\_t \mbox{\hyperlink{_servo_8c_a2cb1378f549e7653202080e2fcd46c71}{servoQuatroRead}}() \{}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00159}00159     \textcolor{keywordflow}{return} duty\_to\_angle(mcpwm\_get\_duty\_in\_us(MCPWM\_UNIT\_0, MCPWM\_TIMER\_0, MCPWM0B));}
+\DoxyCodeLine{\Hypertarget{_servo_8c_source_l00160}00160 \}}
+
+\end{DoxyCode}

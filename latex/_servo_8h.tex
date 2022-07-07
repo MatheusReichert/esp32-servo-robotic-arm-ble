@@ -1,0 +1,385 @@
+\hypertarget{_servo_8h}{}\doxysection{include/\+Servo.h File Reference}
+\label{_servo_8h}\index{include/Servo.h@{include/Servo.h}}
+{\ttfamily \#include \char`\"{}freertos/\+Free\+RTOS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/mcpwm.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_servo_8h_a7d58f3547f66a500716d6401a2eb5fb3}{SERVO\+\_\+\+MIN\+\_\+\+PULSEWIDTH\+\_\+\+US}}~(500)
+\item 
+\#define \mbox{\hyperlink{_servo_8h_a3c252ebbe666084cbd2f993e45e71c62}{SERVO\+\_\+\+MAX\+\_\+\+PULSEWIDTH\+\_\+\+US}}~(2500)
+\item 
+\#define \mbox{\hyperlink{_servo_8h_a600a905aa0df8e867a85378c665f703c}{SERVO\+\_\+\+MAX\+\_\+\+DEGREE}}~(180)
+\item 
+\#define \mbox{\hyperlink{_servo_8h_a9a0c9ff01234e534d2745faca09d7f47}{SERVO\+\_\+\+UM}}~GPIO\+\_\+\+NUM\+\_\+15
+\item 
+\#define \mbox{\hyperlink{_servo_8h_aeaf1cfce76872c7221f2b3a341d9c0e2}{SERVO\+\_\+\+DOIS}}~GPIO\+\_\+\+NUM\+\_\+23
+\item 
+\#define \mbox{\hyperlink{_servo_8h_aff69cfbbfe0d89ec8f997dd06e1d966f}{SERVO\+\_\+\+TRES}}~GPIO\+\_\+\+NUM\+\_\+34
+\item 
+\#define \mbox{\hyperlink{_servo_8h_ad949ce2b30d30e4ae931aab35205e0a5}{SERVO\+\_\+\+QUATRO}}~GPIO\+\_\+\+NUM\+\_\+17
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_servo_8h_af8571e1e364502d96da81d72a634a97d}{init\+Servo\+Um}} ()
+\begin{DoxyCompactList}\small\item\em Servo one initialization with hardware parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_servo_8h_ab193ebaaeaaf99dcdb84dab943c6a0f6}{init\+Servo\+Dois}} ()
+\begin{DoxyCompactList}\small\item\em Servo two initialization with hardware parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_servo_8h_a09eda1b6216f6d99f2f6f791283f57a1}{init\+Servo\+Tres}} ()
+\begin{DoxyCompactList}\small\item\em Servo three initialization with hardware parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_servo_8h_ab0e1936aabacef949268e2fd2b26615e}{init\+Servo\+Quatro}} ()
+\begin{DoxyCompactList}\small\item\em Servo four initialization with hardware parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_servo_8h_a1ae1face4aa806a275fc77cf40e3e328}{servo\+Um\+Write}} (int angle)
+\begin{DoxyCompactList}\small\item\em Write servo One angle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_servo_8h_a5f0ce21e2e6df04f210b7ed8fb0451b4}{servo\+Dois\+Write}} (int angle)
+\begin{DoxyCompactList}\small\item\em Write servo Two angle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_servo_8h_a9124257f59a2e605f350c15dc806d45c}{servo\+Tres\+Write}} (int angle)
+\begin{DoxyCompactList}\small\item\em Write servo Three angle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_servo_8h_a13facb695c9855f5c6c9efd07f02f30d}{servo\+Quatro\+Write}} (int angle)
+\begin{DoxyCompactList}\small\item\em Write servo Four angle. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{_servo_8h_a10eff29c8973c24b2805b52f1db12c8f}{servo\+Um\+Read}} ()
+\begin{DoxyCompactList}\small\item\em Read servo One angle. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{_servo_8h_aadce76875ddb7bbb5940e72074b92b4b}{servo\+Dois\+Read}} ()
+\begin{DoxyCompactList}\small\item\em Read servo Two angle. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{_servo_8h_a97e3f003154baa94816ffbb3d9b34bce}{servo\+Tres\+Read}} ()
+\begin{DoxyCompactList}\small\item\em Read servo Three angle. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{_servo_8h_a2cb1378f549e7653202080e2fcd46c71}{servo\+Quatro\+Read}} ()
+\begin{DoxyCompactList}\small\item\em Read servo Four angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_servo_8h_a3aef0be95a12e0132406bd5533a94648}{servo\+Um\+Pos}}
+\item 
+int \mbox{\hyperlink{_servo_8h_aad147dc41071725509e63571b5ffc786}{servo\+Dois\+Pos}}
+\item 
+int \mbox{\hyperlink{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}{servo\+Tres\+Pos}}
+\item 
+int \mbox{\hyperlink{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}{servo\+Quatro\+Pos}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_servo_8h_aeaf1cfce76872c7221f2b3a341d9c0e2}\label{_servo_8h_aeaf1cfce76872c7221f2b3a341d9c0e2}} 
+\index{Servo.h@{Servo.h}!SERVO\_DOIS@{SERVO\_DOIS}}
+\index{SERVO\_DOIS@{SERVO\_DOIS}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{SERVO\_DOIS}{SERVO\_DOIS}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+DOIS~GPIO\+\_\+\+NUM\+\_\+23}
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00019}{19}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
+\mbox{\Hypertarget{_servo_8h_a600a905aa0df8e867a85378c665f703c}\label{_servo_8h_a600a905aa0df8e867a85378c665f703c}} 
+\index{Servo.h@{Servo.h}!SERVO\_MAX\_DEGREE@{SERVO\_MAX\_DEGREE}}
+\index{SERVO\_MAX\_DEGREE@{SERVO\_MAX\_DEGREE}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{SERVO\_MAX\_DEGREE}{SERVO\_MAX\_DEGREE}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+MAX\+\_\+\+DEGREE~(180)}
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00016}{16}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
+\mbox{\Hypertarget{_servo_8h_a3c252ebbe666084cbd2f993e45e71c62}\label{_servo_8h_a3c252ebbe666084cbd2f993e45e71c62}} 
+\index{Servo.h@{Servo.h}!SERVO\_MAX\_PULSEWIDTH\_US@{SERVO\_MAX\_PULSEWIDTH\_US}}
+\index{SERVO\_MAX\_PULSEWIDTH\_US@{SERVO\_MAX\_PULSEWIDTH\_US}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{SERVO\_MAX\_PULSEWIDTH\_US}{SERVO\_MAX\_PULSEWIDTH\_US}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+MAX\+\_\+\+PULSEWIDTH\+\_\+\+US~(2500)}
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00015}{15}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
+\mbox{\Hypertarget{_servo_8h_a7d58f3547f66a500716d6401a2eb5fb3}\label{_servo_8h_a7d58f3547f66a500716d6401a2eb5fb3}} 
+\index{Servo.h@{Servo.h}!SERVO\_MIN\_PULSEWIDTH\_US@{SERVO\_MIN\_PULSEWIDTH\_US}}
+\index{SERVO\_MIN\_PULSEWIDTH\_US@{SERVO\_MIN\_PULSEWIDTH\_US}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{SERVO\_MIN\_PULSEWIDTH\_US}{SERVO\_MIN\_PULSEWIDTH\_US}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+MIN\+\_\+\+PULSEWIDTH\+\_\+\+US~(500)}
+
+Baseando se na documentação \href{https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/mcpwm.html}{\texttt{ https\+://docs.\+espressif.\+com/projects/esp-\/idf/en/latest/esp32/api-\/reference/peripherals/mcpwm.\+html}} 
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00014}{14}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
+\mbox{\Hypertarget{_servo_8h_ad949ce2b30d30e4ae931aab35205e0a5}\label{_servo_8h_ad949ce2b30d30e4ae931aab35205e0a5}} 
+\index{Servo.h@{Servo.h}!SERVO\_QUATRO@{SERVO\_QUATRO}}
+\index{SERVO\_QUATRO@{SERVO\_QUATRO}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{SERVO\_QUATRO}{SERVO\_QUATRO}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+QUATRO~GPIO\+\_\+\+NUM\+\_\+17}
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00021}{21}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
+\mbox{\Hypertarget{_servo_8h_aff69cfbbfe0d89ec8f997dd06e1d966f}\label{_servo_8h_aff69cfbbfe0d89ec8f997dd06e1d966f}} 
+\index{Servo.h@{Servo.h}!SERVO\_TRES@{SERVO\_TRES}}
+\index{SERVO\_TRES@{SERVO\_TRES}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{SERVO\_TRES}{SERVO\_TRES}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+TRES~GPIO\+\_\+\+NUM\+\_\+34}
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00020}{20}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
+\mbox{\Hypertarget{_servo_8h_a9a0c9ff01234e534d2745faca09d7f47}\label{_servo_8h_a9a0c9ff01234e534d2745faca09d7f47}} 
+\index{Servo.h@{Servo.h}!SERVO\_UM@{SERVO\_UM}}
+\index{SERVO\_UM@{SERVO\_UM}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{SERVO\_UM}{SERVO\_UM}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+UM~GPIO\+\_\+\+NUM\+\_\+15}
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00018}{18}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_servo_8h_ab193ebaaeaaf99dcdb84dab943c6a0f6}\label{_servo_8h_ab193ebaaeaaf99dcdb84dab943c6a0f6}} 
+\index{Servo.h@{Servo.h}!initServoDois@{initServoDois}}
+\index{initServoDois@{initServoDois}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{initServoDois()}{initServoDois()}}
+{\footnotesize\ttfamily void init\+Servo\+Dois (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Servo two initialization with hardware parameters. 
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00066}{66}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_ab0e1936aabacef949268e2fd2b26615e}\label{_servo_8h_ab0e1936aabacef949268e2fd2b26615e}} 
+\index{Servo.h@{Servo.h}!initServoQuatro@{initServoQuatro}}
+\index{initServoQuatro@{initServoQuatro}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{initServoQuatro()}{initServoQuatro()}}
+{\footnotesize\ttfamily void init\+Servo\+Quatro (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Servo four initialization with hardware parameters. 
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00132}{132}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_a09eda1b6216f6d99f2f6f791283f57a1}\label{_servo_8h_a09eda1b6216f6d99f2f6f791283f57a1}} 
+\index{Servo.h@{Servo.h}!initServoTres@{initServoTres}}
+\index{initServoTres@{initServoTres}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{initServoTres()}{initServoTres()}}
+{\footnotesize\ttfamily void init\+Servo\+Tres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Servo three initialization with hardware parameters. 
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00099}{99}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_af8571e1e364502d96da81d72a634a97d}\label{_servo_8h_af8571e1e364502d96da81d72a634a97d}} 
+\index{Servo.h@{Servo.h}!initServoUm@{initServoUm}}
+\index{initServoUm@{initServoUm}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{initServoUm()}{initServoUm()}}
+{\footnotesize\ttfamily void init\+Servo\+Um (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Servo one initialization with hardware parameters. 
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00031}{31}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_aadce76875ddb7bbb5940e72074b92b4b}\label{_servo_8h_aadce76875ddb7bbb5940e72074b92b4b}} 
+\index{Servo.h@{Servo.h}!servoDoisRead@{servoDoisRead}}
+\index{servoDoisRead@{servoDoisRead}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoDoisRead()}{servoDoisRead()}}
+{\footnotesize\ttfamily uint32\+\_\+t servo\+Dois\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read servo Two angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00092}{92}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_a5f0ce21e2e6df04f210b7ed8fb0451b4}\label{_servo_8h_a5f0ce21e2e6df04f210b7ed8fb0451b4}} 
+\index{Servo.h@{Servo.h}!servoDoisWrite@{servoDoisWrite}}
+\index{servoDoisWrite@{servoDoisWrite}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoDoisWrite()}{servoDoisWrite()}}
+{\footnotesize\ttfamily void servo\+Dois\+Write (\begin{DoxyParamCaption}\item[{int}]{angle }\end{DoxyParamCaption})}
+
+
+
+Write servo Two angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00083}{83}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_a2cb1378f549e7653202080e2fcd46c71}\label{_servo_8h_a2cb1378f549e7653202080e2fcd46c71}} 
+\index{Servo.h@{Servo.h}!servoQuatroRead@{servoQuatroRead}}
+\index{servoQuatroRead@{servoQuatroRead}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoQuatroRead()}{servoQuatroRead()}}
+{\footnotesize\ttfamily uint32\+\_\+t servo\+Quatro\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read servo Four angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00158}{158}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_a13facb695c9855f5c6c9efd07f02f30d}\label{_servo_8h_a13facb695c9855f5c6c9efd07f02f30d}} 
+\index{Servo.h@{Servo.h}!servoQuatroWrite@{servoQuatroWrite}}
+\index{servoQuatroWrite@{servoQuatroWrite}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoQuatroWrite()}{servoQuatroWrite()}}
+{\footnotesize\ttfamily void servo\+Quatro\+Write (\begin{DoxyParamCaption}\item[{int}]{angle }\end{DoxyParamCaption})}
+
+
+
+Write servo Four angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00149}{149}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_a97e3f003154baa94816ffbb3d9b34bce}\label{_servo_8h_a97e3f003154baa94816ffbb3d9b34bce}} 
+\index{Servo.h@{Servo.h}!servoTresRead@{servoTresRead}}
+\index{servoTresRead@{servoTresRead}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoTresRead()}{servoTresRead()}}
+{\footnotesize\ttfamily uint32\+\_\+t servo\+Tres\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read servo Three angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00125}{125}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_a9124257f59a2e605f350c15dc806d45c}\label{_servo_8h_a9124257f59a2e605f350c15dc806d45c}} 
+\index{Servo.h@{Servo.h}!servoTresWrite@{servoTresWrite}}
+\index{servoTresWrite@{servoTresWrite}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoTresWrite()}{servoTresWrite()}}
+{\footnotesize\ttfamily void servo\+Tres\+Write (\begin{DoxyParamCaption}\item[{int}]{angle }\end{DoxyParamCaption})}
+
+
+
+Write servo Three angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00116}{116}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_a10eff29c8973c24b2805b52f1db12c8f}\label{_servo_8h_a10eff29c8973c24b2805b52f1db12c8f}} 
+\index{Servo.h@{Servo.h}!servoUmRead@{servoUmRead}}
+\index{servoUmRead@{servoUmRead}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoUmRead()}{servoUmRead()}}
+{\footnotesize\ttfamily uint32\+\_\+t servo\+Um\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read servo One angle. 
+
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00059}{59}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+\mbox{\Hypertarget{_servo_8h_a1ae1face4aa806a275fc77cf40e3e328}\label{_servo_8h_a1ae1face4aa806a275fc77cf40e3e328}} 
+\index{Servo.h@{Servo.h}!servoUmWrite@{servoUmWrite}}
+\index{servoUmWrite@{servoUmWrite}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoUmWrite()}{servoUmWrite()}}
+{\footnotesize\ttfamily void servo\+Um\+Write (\begin{DoxyParamCaption}\item[{int}]{angle }\end{DoxyParamCaption})}
+
+
+
+Write servo One angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_servo_8c_source_l00050}{50}} of file \mbox{\hyperlink{_servo_8c_source}{Servo.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_servo_8h_aad147dc41071725509e63571b5ffc786}\label{_servo_8h_aad147dc41071725509e63571b5ffc786}} 
+\index{Servo.h@{Servo.h}!servoDoisPos@{servoDoisPos}}
+\index{servoDoisPos@{servoDoisPos}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoDoisPos}{servoDoisPos}}
+{\footnotesize\ttfamily int servo\+Dois\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00024}{24}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
+\mbox{\Hypertarget{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}\label{_servo_8h_a9e329871a889612d2ca80514bf54cc0d}} 
+\index{Servo.h@{Servo.h}!servoQuatroPos@{servoQuatroPos}}
+\index{servoQuatroPos@{servoQuatroPos}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoQuatroPos}{servoQuatroPos}}
+{\footnotesize\ttfamily int servo\+Quatro\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00026}{26}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
+\mbox{\Hypertarget{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}\label{_servo_8h_a1b6fe748e6a5b6121a0427798a018785}} 
+\index{Servo.h@{Servo.h}!servoTresPos@{servoTresPos}}
+\index{servoTresPos@{servoTresPos}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoTresPos}{servoTresPos}}
+{\footnotesize\ttfamily int servo\+Tres\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00025}{25}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
+\mbox{\Hypertarget{_servo_8h_a3aef0be95a12e0132406bd5533a94648}\label{_servo_8h_a3aef0be95a12e0132406bd5533a94648}} 
+\index{Servo.h@{Servo.h}!servoUmPos@{servoUmPos}}
+\index{servoUmPos@{servoUmPos}!Servo.h@{Servo.h}}
+\doxysubsubsection{\texorpdfstring{servoUmPos}{servoUmPos}}
+{\footnotesize\ttfamily int servo\+Um\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{_servo_8h_source_l00023}{23}} of file \mbox{\hyperlink{_servo_8h_source}{Servo.\+h}}.
+
