@@ -17,16 +17,16 @@ void setup() {
     Serial.println("Starting NimBLE Client");
     xboxController.begin();
 
-    initServoUmInit();
-    initServoDoisInit();
-    initServoTresInit();
-    initServoQuatroInit();
+    initServoUm();
+    initServoDois();
+    initServoTres();
+    initServoQuatro();
 
     servoUmPos = servoUmRead();
     servoDoisPos = servoDoisRead();
     servoTresPos = servoTresRead();
     servoQuatroPos = servoQuatroRead();
-} //fim da configuração dos parametros inicias
+} //fim da configuração dos parametros
 
 //Super loop
 void loop() {

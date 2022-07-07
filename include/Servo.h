@@ -20,10 +20,10 @@ int servoDoisPos;
 int servoTresPos;
 int servoQuatroPos;
 
-void initServoUmInit();
-void initServoDoisInit();
-void initServoTresInit();
-void initServoQuatroInit();
+void initServoUm();
+void initServoDois();
+void initServoTres();
+void initServoQuatro();
 
 void servoUmWrite(int angle);
 void servoDoisWrite(int angle);
