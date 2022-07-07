@@ -1,4 +1,5 @@
 #include <XboxSeriesXControllerESP32_asukiaaa.hpp>
+// Notação para uso de codigo em C dentro de um codigo CPP
 extern "C"   {
   #include "Servo.h"
 }
@@ -11,6 +12,8 @@ XboxSeriesXControllerESP32_asukiaaa::Core xboxController("14:cb:65:aa:ae:72");
 void setup() {
 
     Serial.begin(9600);
+
+    //Biblioteca para controlar o controle sem fio BLE
     Serial.println("Starting NimBLE Client");
     xboxController.begin();
 
@@ -19,14 +22,13 @@ void setup() {
     initServoTresInit();
     initServoQuatroInit();
 
-
     servoUmPos = servoUmRead();
     servoDoisPos = servoDoisRead();
     servoTresPos = servoTresRead();
     servoQuatroPos = servoQuatroRead();
+} //fim da configuração dos parametros inicias
 
-}
-
+//Super loop
 void loop() {
 
     xboxController.onLoop();

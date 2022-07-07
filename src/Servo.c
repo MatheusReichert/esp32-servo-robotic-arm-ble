@@ -1,6 +1,8 @@
 #include "Servo.h"
-
- 
+/*
+*   Baseando se na documentação:
+*   https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/mcpwm.html
+*/
 
 static inline uint32_t angle_to_duty(int angle)
 {
@@ -42,16 +44,16 @@ void initServoDoisInit(){
         .counter_mode = MCPWM_UP_COUNTER,
         .duty_mode = MCPWM_DUTY_MODE_0,
     };
-    mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_0, &pwm_config);
+    mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_1, &pwm_config);
 }
 
 void servoDoisWrite(int angle){
-    mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, angle_to_duty(angle));
+    mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_1, MCPWM_OPR_A, angle_to_duty(angle));
     vTaskDelay(pdMS_TO_TICKS(100)); //Delay tempo rotação servo
 }
 
 uint32_t servoDoisRead(){
-    return duty_to_angle(mcpwm_get_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A));
+    return duty_to_angle(mcpwm_get_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_1, MCPWM_OPR_A));
 }
 
 void initServoTresInit(){
@@ -63,16 +65,16 @@ void initServoTresInit(){
         .counter_mode = MCPWM_UP_COUNTER,
         .duty_mode = MCPWM_DUTY_MODE_0,
     };
-    mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_0, &pwm_config);
+    mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_2, &pwm_config);
 }
 
 void servoTresWrite(int angle){
-    mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, angle_to_duty(angle));
+    mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_2, MCPWM_OPR_A, angle_to_duty(angle));
     vTaskDelay(pdMS_TO_TICKS(100)); //Delay tempo rotação servo
 }
 
 uint32_t servoTresRead(){
-    return duty_to_angle(mcpwm_get_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A));
+    return duty_to_angle(mcpwm_get_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_2, MCPWM_OPR_A));
 }
 
 void initServoQuatroInit(){
